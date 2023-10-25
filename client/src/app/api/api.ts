@@ -2,7 +2,7 @@ import { createApi } from "@reduxjs/toolkit/query";
 import { fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://jsonplaceholder.typicode.com/users/",
+  baseUrl: "https://jsonplaceholder.typicode.com",
 });
 
 const baseQueryWithRetry = retry(baseQuery, { maxRetries: 2 });
