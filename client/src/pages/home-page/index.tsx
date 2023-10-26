@@ -1,8 +1,10 @@
-import { UiButton } from "../../shared/ui/UiButton";
 import { Layout } from "../../shared/ui/layout";
+import { EmployeesSection } from "./employees-section";
 
 export function HomePage() {
-  return <Layout>
-    <UiButton>Button</UiButton>
-  </Layout>
+  return (
+    <Layout>
+      <EmployeesSection />
+    </Layout>
+  );
 }

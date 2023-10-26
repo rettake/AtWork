@@ -4,7 +4,7 @@ import { UiNotificationIcon } from "../UiNotificationIcon";
 
 export function UiHeader() {
   return (
-    <header className="w-full p-4 flex items-center justify-center bg-sixth-color fixed">
+    <header className="w-full px-4 py-3 md:p-4 flex items-center justify-center bg-sixth-color fixed">
       <div className="w-full max-w-[1140px] flex items-center justify-between">
         <UiLogo />
         <div className="flex items-center gap-5">
