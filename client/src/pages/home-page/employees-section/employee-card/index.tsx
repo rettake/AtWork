@@ -5,11 +5,13 @@ export function EmployeeCard({
   company,
   city,
   archived,
+  id,
 }: {
   name: string;
   company: string;
   city: string;
   archived?: boolean;
+  id: number;
 }) {
   return (
     <div className="w-full flex flex-col md:flex-row items-start gap-4 md:gap-5 p-4 md:p-5 bg-sixth-color rounded-2xl">
@@ -24,7 +26,7 @@ export function EmployeeCard({
         <div className="w-full flex flex-col items-start gap-1">
           <div className="w-full flex justify-between items-start">
             <h4 className="headline text-accent">{name}</h4>
-            <CardMenu archived={archived} />
+            <CardMenu id={id} archived={archived} />
           </div>
           <span className="additional-medium text-second-color">{company}</span>
         </div>

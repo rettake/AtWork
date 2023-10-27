@@ -1,11 +1,15 @@
+import { useSelector } from "react-redux";
 import { useGetAllUsersQuery } from "../../../app/api/users";
 import { UiLoader } from "../../../shared/ui/UiLoader";
 import { EmployeeCard } from "./employee-card";
+import { RootState } from "../../../app/store";
 
 export function EmployeesSection() {
   const { data, isLoading } = useGetAllUsersQuery();
+
+  const { users } = useSelector((state: RootState) => state.users);
+
   console.log(data);
-  const archived = []
 
   return (
     <section className="w-full max-w-[1192px] px-4 mx-auto mt-[82px] md:mt-[96px] mb-10 md:mb-[198px] flex flex-col gap-8 md:gap-10">
@@ -17,7 +21,16 @@ export function EmployeesSection() {
           {isLoading ? (
             <UiLoader />
           ) : (
-              data?.map((item) => <EmployeeCard archived={false} key={item.id} name={item.name} company={item.company.name} city={item.address.city} />)
+            users.map((item) => (
+              <EmployeeCard
+                archived={false}
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                company={item.company.name}
+                city={item.address.city}
+              />
+            ))
           )}
         </div>
       </div>
@@ -29,7 +42,16 @@ export function EmployeesSection() {
           {isLoading ? (
             <UiLoader />
           ) : (
-              data?.map((item) => <EmployeeCard archived={true} key={item.id} name={item.name} company={item.company.name} city={item.address.city} />)
+            data?.map((item) => (
+              <EmployeeCard
+                archived={true}
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                company={item.company.name}
+                city={item.address.city}
+              />
+            ))
           )}
         </div>
       </div>

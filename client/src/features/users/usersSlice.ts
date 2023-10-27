@@ -1,5 +1,5 @@
 import { RootState } from "../../app/store";
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { usersApi } from "../../app/api/users";
 import { IUser } from "../../interfaces/IUser";
 
@@ -14,7 +14,13 @@ const initialState: IUserInitalState = {
 const slice = createSlice({
   name: "users",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    removeUser: (state, action: PayloadAction<number>) => {
+      state.users = state.users.filter((user) => user.id !== action.payload);
+    },
+    // addUserToArchived: {},
+    // removeUserFromArchived: {}
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       usersApi.endpoints.getAllUsers.matchFulfilled,
@@ -27,4 +33,6 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const selectPosts = (state: RootState) => state.users;
+export const { removeUser } = slice.actions;
+
+export const selectUsers = (state: RootState) => state.users;
