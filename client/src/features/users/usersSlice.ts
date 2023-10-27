@@ -1,7 +1,7 @@
+import { IUser } from "./../../interfaces/IUser";
 import { RootState } from "../../app/store";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { usersApi } from "../../app/api/users";
-import { IUser } from "../../interfaces/IUser";
 
 export interface IUserInitalState {
   users: IUser[];
@@ -18,8 +18,9 @@ const slice = createSlice({
     removeUser: (state, action: PayloadAction<number>) => {
       state.users = state.users.filter((user) => user.id !== action.payload);
     },
-    // addUserToArchived: {},
-    // removeUserFromArchived: {}
+    addUser: (state, action: PayloadAction<IUser>) => {
+      state.users.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -33,6 +34,6 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { removeUser } = slice.actions;
+export const { removeUser, addUser } = slice.actions;
 
 export const selectUsers = (state: RootState) => state.users;

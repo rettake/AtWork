@@ -8,6 +8,7 @@ export function EmployeesSection() {
   const { data, isLoading } = useGetAllUsersQuery();
 
   const { users } = useSelector((state: RootState) => state.users);
+  const { archivedUsers } = useSelector((state: RootState) => state.archivedUsers);
 
   console.log(data);
 
@@ -42,7 +43,7 @@ export function EmployeesSection() {
           {isLoading ? (
             <UiLoader />
           ) : (
-            data?.map((item) => (
+            archivedUsers?.map((item) => (
               <EmployeeCard
                 archived={true}
                 key={item.id}
