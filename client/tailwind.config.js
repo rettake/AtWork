@@ -10,7 +10,7 @@ module.exports = {
       "third-color": "#9c9c9c",
       "second-color": "#595959",
       "first-color": "#161616",
-      "accent": "22a0bc",
+      "accent": "#22a0bc",
     },
   },
   plugins: [],

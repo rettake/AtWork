@@ -17,3 +17,12 @@ export const usersApi = api.injectEndpoints({
     }),
   }),
 });
+
+export const {
+  useGetAllUsersQuery,
+  useGetUserByIdQuery,
+} = usersApi;
+
+export const {
+  endpoints: { getAllUsers, getUserById },
+} = usersApi;
