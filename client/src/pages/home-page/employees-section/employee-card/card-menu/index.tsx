@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { UiMenuIcon } from "../../../../../shared/ui/UiMenuIcon";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeUser, addUser } from "../../../../../features/users/usersSlice";
-import { RootState } from "../../../../../app/store";
 import { useGetUserByIdQuery } from "../../../../../app/api/users";
 import {
   addToArchived,
   removeFromArchived,
 } from "../../../../../features/users/archivedUsersSlice";
+import { useNavigate } from "react-router";
 
 export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
   const [show, setShow] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { data } = useGetUserByIdQuery(String(id));
@@ -33,11 +34,21 @@ export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
     }
   }; // Кнопка активировать
 
+  const handleEdit = () => {
+    navigate(`/user/${id}`);
+  }; // Кнопка редактировать
+
   return (
     <div className="relative pl-2">
       <div>
         <UiMenuIcon
-          className="lg:w-1 lg:h-5 lg:hover:text-accent transition-colors duration-300"
+          isMobile={false}
+          className="cursor-pointer lg:hover:text-accent transition-colors duration-300 hidden lg:block"
+          onClick={() => setShow((prev) => !prev)}
+        />
+        <UiMenuIcon
+          isMobile={true}
+          className="cursor-pointer lg:hover:text-accent transition-colors duration-300 lg:hidden"
           onClick={() => setShow((prev) => !prev)}
         />
       </div>
@@ -54,7 +65,7 @@ export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
             <>
               <div
                 className="px-3 py-2 additional-medium text-first-color lg:hover:text-accent cursor-pointer transition-colors duration-300"
-                onClick={() => null}
+                onClick={() => handleEdit()}
               >
                 Редактировать
               </div>

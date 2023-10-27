@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router";
+
 export function UiLogo() {
+  const navigate = useNavigate();
+
   return (
     <svg
+      className="cursor-pointer"
+      onClick={() => navigate("/")}
       width="124"
       height="24"
       viewBox="0 0 124 24"

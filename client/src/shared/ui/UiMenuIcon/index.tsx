@@ -1,24 +1,59 @@
 export function UiMenuIcon({
+  isMobile,
   className,
   onClick,
 }: {
+  isMobile?: boolean;
   className?: string;
   onClick?: () => void;
 }) {
   return (
-    <svg
-      onClick={onClick}
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      width="3"
-      height="10"
-      viewBox="0 0 3 10"
-      fill="none"
-    >
-      <path
-        d="M0 8.75C0 9.4375 0.5625 10 1.25 10C1.9375 10 2.5 9.4375 2.5 8.75C2.5 8.0625 1.9375 7.5 1.25 7.5C0.5625 7.5 0 8.0625 0 8.75ZM0 1.25C0 1.9375 0.5625 2.5 1.25 2.5C1.9375 2.5 2.5 1.9375 2.5 1.25C2.5 0.5625 1.9375 0 1.25 0C0.5625 0 0 0.5625 0 1.25ZM0 5C0 5.6875 0.5625 6.25 1.25 6.25C1.9375 6.25 2.5 5.6875 2.5 5C2.5 4.3125 1.9375 3.75 1.25 3.75C0.5625 3.75 0 4.3125 0 5Z"
-        fill="currentColor"
-      />
-    </svg>
+    <>
+      {isMobile ? (
+        <svg
+          onClick={onClick}
+          className={className}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_28_7959)">
+            <path
+              d="M11 14.75C11 15.4375 11.5625 16 12.25 16C12.9375 16 13.5 15.4375 13.5 14.75C13.5 14.0625 12.9375 13.5 12.25 13.5C11.5625 13.5 11 14.0625 11 14.75ZM11 7.25C11 7.9375 11.5625 8.5 12.25 8.5C12.9375 8.5 13.5 7.9375 13.5 7.25C13.5 6.5625 12.9375 6 12.25 6C11.5625 6 11 6.5625 11 7.25ZM11 11C11 11.6875 11.5625 12.25 12.25 12.25C12.9375 12.25 13.5 11.6875 13.5 11C13.5 10.3125 12.9375 9.75 12.25 9.75C11.5625 9.75 11 10.3125 11 11Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_28_7959">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      ) : (
+        <svg
+          onClick={onClick}
+          className={className}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_10_6608)">
+            <path
+              d="M10 18C10 19.1 10.9 20 12 20C13.1 20 14 19.1 14 18C14 16.9 13.1 16 12 16C10.9 16 10 16.9 10 18ZM10 6C10 7.1 10.9 8 12 8C13.1 8 14 7.1 14 6C14 4.9 13.1 4 12 4C10.9 4 10 4.9 10 6ZM10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10C10.9 10 10 10.9 10 12Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_10_6608">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      )}
+    </>
   );
 }
