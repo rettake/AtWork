@@ -5,6 +5,15 @@ import { UiBackArrowIcon } from "../../../shared/ui/UiBackArrowIcon";
 import { UiTextField } from "../../../shared/ui/UiTextField";
 import { UiButton } from "../../../shared/ui/UiButton";
 
+export interface IFormInterface {
+  name?: string;
+  nickname?: string;
+  email?: string;
+  city?: string;
+  phone?: string;
+  company?: string;
+}
+
 export function UserInfoSection({
   setShowModal,
 }: {
@@ -14,15 +23,6 @@ export function UserInfoSection({
   const { data } = useGetUserByIdQuery(String(id));
 
   const navigate = useNavigate();
-
-  interface IFormInterface {
-    name?: string;
-    nickname?: string;
-    email?: string;
-    city?: string;
-    phone?: string;
-    company?: string;
-  }
 
   const [form, setForm] = useState<IFormInterface>({
     name: "",
@@ -64,7 +64,7 @@ export function UserInfoSection({
           <img
             src={require("../../../assets/images/me.png")}
             alt="avatar"
-            className="rounded-lg w-full max-h-[485px] object-cover"
+            className="rounded-lg w-full max-h-[187px] md:max-h-[300px] lg:max-h-[485px] object-cover"
           />
           <div className="flex flex-col gap-5 lg:gap-6">
             <div className="w-full border-b-[1px] border-b-fourth-color pb-3">
