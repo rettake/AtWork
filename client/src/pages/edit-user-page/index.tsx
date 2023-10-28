@@ -9,7 +9,9 @@ export function EditUserPage() {
   return (
     <Layout>
       <UserInfoSection setShowModal={setShowModal} />
-      {showModal && <SuccessModal setShowModal={setShowModal} />}
+      {showModal && (
+        <SuccessModal showModal={showModal} setShowModal={setShowModal} />
+      )}
     </Layout>
   );
 }

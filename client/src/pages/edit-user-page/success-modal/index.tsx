@@ -5,18 +5,20 @@ import { useOutsideClick } from "../../../hooks/useOutsideClick";
 
 export function SuccessModal({
   setShowModal,
+  showModal,
 }: {
   setShowModal: Dispatch<React.SetStateAction<boolean>>;
+  showModal: boolean;
 }) {
   const ref = useOutsideClick(() => {
     setShowModal(false);
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      setShowModal(false);
-    }, 4000);
-  }, [setShowModal]);
+    const id = setTimeout(() => setShowModal(false), 4000);
+
+    if (!showModal) clearTimeout(id);
+  }, [showModal, setShowModal]);
 
   return (
     <div className="fixed top-0 left-0 h-full w-full right-0 bottom-0 z-[1000]">
