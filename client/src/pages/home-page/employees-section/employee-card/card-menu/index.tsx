@@ -53,7 +53,7 @@ export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
         />
       </div>
       {show && (
-        <div className="absolute top-[20px] lg:top-[30px] right-0 p-2 flex flex-col gap-2 bg-sixth-color rounded-xl border border-fourth-color">
+        <div className="absolute top-[20px] lg:top-[30px] right-3 p-2 flex flex-col gap-2 bg-sixth-color rounded-xl border border-fourth-color">
           {archived ? (
             <div
               className="px-3 py-2 additional-medium text-first-color lg:hover:text-accent cursor-pointer transition-colors duration-300"

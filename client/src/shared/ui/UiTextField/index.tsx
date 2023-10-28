@@ -6,11 +6,7 @@ export type UiTextFieldProps = {
   inputProps?: PropsWithRef<InputHTMLAttributes<HTMLInputElement>>;
 };
 
-export function UiTextField({
-  label,
-  error,
-  inputProps,
-}: UiTextFieldProps) {
+export function UiTextField({ label, error, inputProps }: UiTextFieldProps) {
   const id = useId();
 
   return (

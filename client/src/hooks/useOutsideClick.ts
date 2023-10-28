@@ -19,4 +19,3 @@ export const useOutsideClick = (callback: () => void) => {
 
   return ref;
 };
-
