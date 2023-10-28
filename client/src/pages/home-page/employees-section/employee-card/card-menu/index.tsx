@@ -8,6 +8,7 @@ import {
   removeFromArchived,
 } from "../../../../../features/users/archivedUsersSlice";
 import { useNavigate } from "react-router";
+import { useOutsideClick } from "../../../../../hooks/useOutsideClick";
 
 export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
   const [show, setShow] = useState<boolean>(false);
@@ -15,6 +16,10 @@ export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
 
   const dispatch = useDispatch();
   const { data } = useGetUserByIdQuery(String(id));
+
+  const ref = useOutsideClick(() => {
+    setShow(false);
+  });
 
   const handleRemove = () => {
     dispatch(removeUser(id));
@@ -53,7 +58,10 @@ export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
         />
       </div>
       {show && (
-        <div className="absolute top-[20px] lg:top-[30px] right-3 p-2 flex flex-col gap-2 bg-sixth-color rounded-xl border border-fourth-color">
+        <div
+          ref={ref}
+          className="absolute top-[20px] lg:top-[30px] right-3 p-2 flex flex-col gap-2 bg-sixth-color rounded-xl border border-fourth-color"
+        >
           {archived ? (
             <div
               className="px-3 py-2 additional-medium text-first-color lg:hover:text-accent cursor-pointer transition-colors duration-300"
