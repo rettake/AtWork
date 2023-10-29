@@ -47,13 +47,7 @@ export function CardMenu({ archived, id }: { archived?: boolean; id: number }) {
     <div className="relative pl-2">
       <div>
         <UiMenuIcon
-          isMobile={false}
-          className="cursor-pointer lg:hover:text-accent transition-colors duration-300 hidden lg:block"
-          onClick={() => setShow((prev) => !prev)}
-        />
-        <UiMenuIcon
-          isMobile={true}
-          className="cursor-pointer lg:hover:text-accent transition-colors duration-300 lg:hidden"
+          className="cursor-pointer lg:hover:text-accent transition-colors duration-300"
           onClick={() => setShow((prev) => !prev)}
         />
       </div>
