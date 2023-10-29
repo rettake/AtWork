@@ -55,8 +55,7 @@ export function UserInfoSection({
         onClick={() => navigate("/")}
         className="py-5 max-w-[120px] flex items-center gap-2 cursor-pointer"
       >
-        <UiBackArrowIcon isMobile={true} className="lg:hidden" />
-        <UiBackArrowIcon isMobile={false} className="hidden lg:block" />
+        <UiBackArrowIcon />
         <span className="text-second-color headline">Назад</span>
       </div>
       <div className="w-full flex flex-col lg:flex-row gap-5 lg:gap-10">
