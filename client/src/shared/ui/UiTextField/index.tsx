@@ -13,11 +13,7 @@ export type UiTextFieldProps = {
   inputProps?: PropsWithRef<InputHTMLAttributes<HTMLInputElement>>;
 };
 
-export function UiTextField({
-  label,
-  error,
-  inputProps,
-}: UiTextFieldProps) {
+export function UiTextField({ label, error, inputProps }: UiTextFieldProps) {
   const id = useId();
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -54,9 +50,7 @@ export function UiTextField({
         </label>
       )}
       {isFocused && (
-        <i
-          className="absolute top-[42px] md:top-[45px] left-[90%] md:left-[96%] lg:left-[91%] cursor-pointer"
-        >
+        <div className="z-100 absolute top-[42px] md:top-[45px] left-[90%] md:left-[96%] lg:left-[91%] cursor-pointer">
           <svg
             width="24"
             height="24"
@@ -69,7 +63,7 @@ export function UiTextField({
               fill="#595959"
             />
           </svg>
-        </i>
+        </div>
       )}
       <input
         {...inputProps}
